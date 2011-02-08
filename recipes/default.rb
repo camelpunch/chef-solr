@@ -48,3 +48,25 @@ template "#{node.jetty.home}/contexts/solr.xml" do
   source "solr.context.erb"
   notifies :restart, resources(:service => "jetty")
 end
+
+directory "#{node.solr.home}/conf" do
+  owner     node.jetty.user
+  group     node.jetty.group
+  mode      "750"
+end
+
+%w(
+  elevate.xml
+  schema.xml
+  solrconfig.xml
+  spellings.txt
+  stopwords.txt
+  synonyms.txt
+).each do |template_name|
+  template "#{node.solr.home}/conf/#{template_name}" do
+    owner node.jetty.user
+    source "#{template_name}.erb"
+    notifies :restart, resources(:service => "jetty")
+  end
+end
+
