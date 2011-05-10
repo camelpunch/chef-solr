@@ -4,7 +4,7 @@ expand!
 
 default[:solr][:version]   = "1.4.1"
 default[:solr][:link]      = "http://www.trieuvan.com/apache//lucene/solr/#{solr.version}/apache-solr-#{solr.version}.tgz"
-default[:solr][:checksum]  = "b189e6e800903d81c7c8dc86100d299d4dfd1e32d356a5bf56c42eb0a9e75d7f"
+default[:solr][:checksum]  = "d795bc477335b3e29bab7073b385c93fca4be867aae345203da0d1e438d7543f"
 default[:solr][:directory] = "/usr/local/src"
 default[:solr][:download]  = "#{solr.directory}/apache-solr-#{solr.version}.tgz"
 default[:solr][:extracted] = "#{solr.directory}/apache-solr-#{solr.version}"
